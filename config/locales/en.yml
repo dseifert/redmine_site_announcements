@@ -1,0 +1,9 @@
+en:
+  label_announcement: Announcement
+  label_announcement_plural: Announcements
+  label_announcement_new: New Announcement
+  label_announcement_edit: Edit Announcement
+  label_announcement_hide: Hide Announcement
+  label_announcement_show: Read More
+  field_starts_at: Show beginning on
+  field_ends_at: Hide after

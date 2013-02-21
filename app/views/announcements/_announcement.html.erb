@@ -1,0 +1,15 @@
+<%= div_for announcement do %>
+  <h3><%= announcement.title %></h3>
+  <%= authoring(announcement.created_at, announcement.user) %> | 
+
+  <% if announcement.message.present? %> 
+    <%= link_to l(:label_announcement_show), announcement, remote: true %> |
+  <% end %>
+
+  <%= link_to l(:label_announcement_hide), [:hide, announcement], remote: true %>
+
+  <% if User.current.admin? %> 
+    | <%= link_to l(:button_edit), [:edit, announcement], remote: true %>
+    | <%= delete_link announcement, remote: true %>
+  <% end %>
+<% end %>

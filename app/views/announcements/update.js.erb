@@ -1,0 +1,7 @@
+<% if @announcement.valid? %>
+  hideModal();
+  location.reload();
+<% else %>
+  $("#errorExplanation").remove();
+  $("<%=j error_messages_for("announcement") %>").prependTo("#edit_announcement_<%= @announcement.id %>");
+<% end %>

@@ -1,0 +1,17 @@
+<% show = capture do %>
+  <h3 class="title"><%= @announcement.title %></h3>
+
+  <div class="contextual"><%= authoring(@announcement.created_at, @announcement.user) %></div>
+  <h4><%= avatar @announcement.user, size: "24" %> <%= @announcement.user.try :name %></h4>
+
+  <div class="wiki">
+    <%= textilizable @announcement.message %>
+  </div>
+
+  <p class="buttons">
+    <%= submit_tag l(:button_close), onclick: "hideModal(this);", type: "button" %>
+  </p>
+<% end %>
+
+$("#ajax-modal").html("<%= j show %>");
+showModal("ajax-modal", "600px");
