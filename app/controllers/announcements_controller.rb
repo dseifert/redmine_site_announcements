@@ -17,7 +17,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def index
-    @announcements = Announcement.current
+    @announcements = Announcement.where "ends_at > :now", now: Time.zone.now
     respond_with @announcements
   end
 
