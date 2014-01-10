@@ -9,6 +9,6 @@
   <p><%= f.text_field :ends_at %></p>
   <%= calendar_for "announcement_ends_at" %>
   
-  <%= f.text_area :message, cols: 60, rows: 10, class: "wiki-edit", no_label: true %>
+  <%= f.text_area :message, :cols => 60, :rows => 10, :class => "wiki-edit", :no_label => true %>
   <%= wikitoolbar_for "announcement_message" %>
 </div>

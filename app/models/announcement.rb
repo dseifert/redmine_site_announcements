@@ -3,11 +3,11 @@ class Announcement < ActiveRecord::Base
   
   attr_accessible :title, :message, :starts_at, :ends_at
 
-  validates :title, :starts_at, :ends_at, presence: true
-  validate :ends_at_cannot_be_in_the_past, on: :create
+  validates :title, :starts_at, :ends_at, :presence => true
+  validate :ends_at_cannot_be_in_the_past, :on => :create
 
   def self.current(hidden_ids = nil)
-    result = where("starts_at <= :now and ends_at >= :now", now: Time.zone.now)
+    result = where("starts_at <= :now and ends_at >= :now", :now => Time.zone.now)
     result = result.where("id not in (?)", hidden_ids) if hidden_ids.present?
     result
   end

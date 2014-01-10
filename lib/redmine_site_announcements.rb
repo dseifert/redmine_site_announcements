@@ -16,7 +16,7 @@ module RedmineSiteAnnouncements
     # 
     # Returns the stylesheet link tag as a String.
     def view_layouts_base_html_head(context = {})
-      stylesheet_link_tag("announcements", plugin: :redmine_site_announcements)
+      stylesheet_link_tag("announcements", :plugin => :redmine_site_announcements)
     end
 
     # Public: Renders visible announcements for the current user on every
@@ -29,7 +29,7 @@ module RedmineSiteAnnouncements
       @view = context[:hook_caller]
       @announcements = Announcement.current cookies.signed[:hidden_announcement_ids]
 
-      content_tag :div, id: "announcements" do
+      content_tag :div, :id => "announcements" do
         render @announcements if @announcements.any?
       end
     end

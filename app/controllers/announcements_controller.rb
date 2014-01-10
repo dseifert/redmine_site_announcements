@@ -1,11 +1,11 @@
 class AnnouncementsController < ApplicationController
   layout "admin"
 
-  respond_to :html, only: :index
-  respond_to :js, except: :index
+  respond_to :html, :only => :index
+  respond_to :js, :except => :index
 
-  before_filter :require_admin, except: [:hide, :show]
-  before_filter :find_announcement, except: [:hide, :index, :new, :create]
+  before_filter :require_admin, :except => [:hide, :show]
+  before_filter :find_announcement, :except => [:hide, :index, :new, :create]
 
   def hide
     ids = [params[:id], *cookies.signed[:hidden_announcement_ids]]
@@ -17,7 +17,7 @@ class AnnouncementsController < ApplicationController
   end
 
   def index
-    @announcements = Announcement.where "ends_at > :now", now: Time.zone.now
+    @announcements = Announcement.where "ends_at > :now", :now => Time.zone.now
     respond_with @announcements
   end
 

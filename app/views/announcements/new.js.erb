@@ -1,12 +1,12 @@
 <% form = capture do %>
   <h3 class="title"><%= l(:label_announcement_new) %></h3>
 
-  <%= labelled_form_for @announcement, remote: true do |f| %>
-    <%= render partial: "form.html", locals: {f: f} %>
+  <%= labelled_form_for @announcement, :remote => true do |f| %>
+    <%= render :partial => "form.html", :locals => {:f => f} %>
 
     <p class="buttons">
       <%= f.submit l(:button_create) %>
-      <%= submit_tag l(:button_cancel), onclick: "hideModal(this);", type: "button" %>
+      <%= submit_tag l(:button_cancel), :onclick => "hideModal(this);", :type => "button" %>
     </p>
   <% end %>
 <% end %>
